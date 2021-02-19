@@ -72,7 +72,13 @@ open class LGButton: UIControl {
             setupView()
         }
     }
-    
+	
+	public var font: UIFont = UIFont.systemFont(ofSize: 12) {
+		didSet{
+			setupView()
+		}
+	}
+	
     @IBInspectable public var showTouchFeedback: Bool = true
     
     @IBInspectable public var gradientStartColor: UIColor? = nil {
@@ -494,11 +500,13 @@ open class LGButton: UIControl {
         titleLbl.numberOfLines = titleNumOfLines
         titleLbl.text = titleString
         titleLbl.textColor = titleColor
-        if titleFontName != nil {
-            titleLbl.font = UIFont.init(name:titleFontName! , size:titleFontSize)
-        }else{
-            titleLbl.font = UIFont.systemFont(ofSize: titleFontSize)
-        }
+//        if titleFontName != nil {
+//            titleLbl.font = UIFont.init(name:titleFontName! , size:titleFontSize)
+//        }else{
+//            titleLbl.font = UIFont.systemFont(ofSize: titleFontSize)
+//        }
+		
+		titleLbl.font = font
     }
     
     fileprivate func setupLeftIcon(){
